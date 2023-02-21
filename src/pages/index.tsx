@@ -5,6 +5,7 @@ import { Layout } from '../components/Layout/Layout';
 import Auth from '../components/auth.js';
 import Account from '../components/account.js';
 import { Session } from '@supabase/supabase-js';
+import { Link } from 'gatsby';
 
 export default function HomePage() {
   const [session, setSession] = useState<Session | null>(null);
@@ -23,7 +24,7 @@ export default function HomePage() {
       <div className="container" style={{ padding: '50px 0 100px 0' }}>
         {!session ? <Auth /> : <Account key={session.user.id} session={session} />}
       </div>
-
+      <Link to="/hello">About</Link>
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
     </Layout>
   );
